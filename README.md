@@ -11,17 +11,18 @@ A repo containting simple ROS tutorials. This repo contains a [publisher & subsc
   * Make sure you have a caktin workspace setup. Follow [this](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) for reference.
 
 # How to build this repo
+```
   * cd ~/catkin_ws/src
   * git clone https://github.com/SamPusegaonkar/beginner_tutorials/tree/main
   * cd ~/catkin_ws/
   * catkin_make
-
+```
 # How to run this repo
+```
   * cd ~/catkin_ws/
   * source ./devel/setup.bash
   * roscore
   * Open another 2 terminals & run the first 2 commands in this section again:
   * roslaunch beginner_tutorials listener
   * roslaunch beginner_tutorials talker
-
-
+```
