@@ -1,16 +1,29 @@
+/**
+ * @file listener.cpp
+ * @author Sameer Pusegaonkar (sameer@umd.edu)
+ * @brief A listener file to print out the message collected at a topic.
+ * @version 0.1
+ * @date 2021-10-29
+ * @copyright Copyright (c) 2021
+ */
+
+
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
 /**
  * This tutorial demonstrates simple receipt of messages over the ROS system.
  */
-void chatterCallback(const std_msgs::String::ConstPtr& msg)
-{
+
+/**
+ * @brief A chatter callback method to print out the string message
+ * @param msg A constant pointer from the std::msgs namespace
+ */
+void chatterCallback(const std_msgs::String::ConstPtr& msg) {
   ROS_INFO("I heard: [%s]", msg->data.c_str());
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
    * any ROS arguments and name remapping that were provided at the command line.
