@@ -14,6 +14,11 @@
 /**
  * This tutorial demonstrates simple receipt of messages over the ROS system.
  */
+
+/**
+ * @brief A chatter callback method to print out the string message
+ * @param msg A constant pointer from the std::msgs namespace
+ */
 void chatterCallback(const std_msgs::String::ConstPtr& msg) {
   ROS_INFO("I heard: [%s]", msg->data.c_str());
 }
