@@ -1,3 +1,12 @@
+/**
+ * @file talker.cpp
+ * @author Sameer Pusegaonkar (sameer@umd.edu)
+ * @brief A talker file to publish out a custom message on a topic.
+ * @version 0.1
+ * @date 2021-10-29
+ * @copyright Copyright (c) 2021
+ */
+
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
