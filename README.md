@@ -1,4 +1,7 @@
 # beginner_tutorials
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 A repo containting simple ROS tutorials. This repo contains a [publisher & subscriber tutorial](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29).
 
 # Dependencies
@@ -26,3 +29,4 @@ A repo containting simple ROS tutorials. This repo contains a [publisher & subsc
   * roslaunch beginner_tutorials listener
   * roslaunch beginner_tutorials talker
 ```
+
