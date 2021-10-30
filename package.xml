@@ -2,18 +2,18 @@
 <package format="2">
   <name>beginner_tutorials</name>
   <version>0.0.0</version>
-  <description>The beginner_tutorials package</description>
+  <description>The beginner_tutorials package - This package will have simple programs to go over the concepts of ROS!</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="sameer@todo.todo">sameer</maintainer>
+  <maintainer email="sameer@umd.edu">sameer</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>TODO</license>
+  <license>MIT</license>
 
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
