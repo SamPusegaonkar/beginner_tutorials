@@ -52,7 +52,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(FILES String.msg)
 
 ## Generate services in the 'srv' folder
-add_service_files(FILES AddString.srv)
+add_service_files(FILES CheckString.srv )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
