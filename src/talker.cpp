@@ -1,21 +1,72 @@
-/**
- * @file talker.cpp
- * @author Sameer Pusegaonkar (sameer@umd.edu)
- * @brief A talker file to publish out a custom message on a topic.
- * @version 0.1
- * @date 2021-10-29
- * @copyright Copyright (c) 2021
+/*
+ * Copyright (C) 2008, Morgan Quigley and Willow Garage, Inc.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *   * Redistributions of source code must retain the above copyright notice,
+ *     this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ *   * Neither the names of Stanford University or Willow Garage, Inc. nor the names of its
+ *     contributors may be used to endorse or promote products derived from
+ *     this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  */
-
-#include <sstream>
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
+#include <sstream>
+#include "beginner_tutorials/CheckString.h"
 
 /**
  * This tutorial demonstrates simple sending of messages over the ROS system.
  */
+
+
+bool CheckForValidMessage(beginner_tutorials::CheckString::Request  &req,
+          beginner_tutorials::CheckString::Response &res) {
+  if ( req.input_msg == "INFO" ) {
+    ROS_INFO_STREAM("Request to check if robot is ok");
+    ROS_INFO_STREAM("Sending back response: Robot is alright!");
+    res.output_res = "Robot is Algirht";
+
+  } else if ( req.input_msg == "DEBUG" ) {
+    ROS_DEBUG_STREAM("Debugging errors");
+    ROS_DEBUG_STREAM("Sending back response: This is a debugging message");
+    ROS_DEBUG_STREAM("INSIDE DEBUGGING");
+    res.output_res = "The programmer is currently debugging";
+
+  } else if ( req.input_msg == "WARN" ) {
+    ROS_WARN_STREAM("Request to check if robot is giving a warning");
+    ROS_WARN_STREAM("sending back response: Robot is returning some warnings");
+    res.output_res = "Robot is returning some warnings!";
+
+  } else if ( req.input_msg == "ERROR" ) {
+    ROS_ERROR_STREAM("Request to check if the robot is giving a warning");
+    ROS_ERROR_STREAM("Sending back response: Robot returned some errors!");
+    res.output_res = "Robot has some erros";
+
+  } else if ( req.input_msg == "FATAL" ) {
+    ROS_FATAL_STREAM("Request to check if a robot is giving any fatal erros");
+    ROS_FATAL_STREAM("Sending back response: Robot is on fire!!!");
+    res.output_res = "Robot is on fire!!!!!!!!!!!!!!";
+  }
+  return true;
+}
+
 int main(int argc, char **argv) {
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
@@ -35,6 +86,8 @@ int main(int argc, char **argv) {
    * NodeHandle destructed will close down the node.
    */
   ros::NodeHandle n;
+
+  ros::ServiceServer service = n.advertiseService("CheckString", CheckForValidMessage);
 
   /**
    * The advertise() function is how you tell ROS that you want to
@@ -61,7 +114,6 @@ int main(int argc, char **argv) {
    * A count of how many messages we have sent. This is used to create
    * a unique string for each message.
    */
-  int count = 0;
   while (ros::ok()) {
     /**
      * This is a message object. You stuff it with data, and then publish it.
@@ -69,7 +121,7 @@ int main(int argc, char **argv) {
     std_msgs::String msg;
 
     std::stringstream ss;
-    ss << " Hi! This is a message from a publisher created by Sameer!" << count;
+    ss << "Hi, This is Sameer's Robot";
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());
@@ -85,7 +137,8 @@ int main(int argc, char **argv) {
     ros::spinOnce();
 
     loop_rate.sleep();
-    ++count;
   }
+
+
   return 0;
 }
