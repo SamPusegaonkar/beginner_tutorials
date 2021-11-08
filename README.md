@@ -30,3 +30,16 @@ A repo containting simple ROS tutorials. This repo contains a [publisher & subsc
   * roslaunch beginner_tutorials talker
 ```
 
+# How to run this repo - Week10 Branch - Services
+```
+  * cd ~/catkin_ws/
+  * source ./devel/setup.bash
+  * roslaunch beginner_tutorials my_launch.launch
+  * Open another 2 terminals & run the first 2 commands in this section again:
+  * rosservice call /CheckString <string> #This <string> can be DEBUG, WARN, INFO, ERROR, FATAL
+  * Open rosrun rqt_console rqt_console # To see the logs
+  * Open rosrun rqt_logger_level rqt_logger_level # To change the log type for a node
+
+```
+
+
