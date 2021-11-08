@@ -29,7 +29,7 @@ bool CheckForValidMessage(beginner_tutorials::CheckString::Request  &req,
   if ( req.input_msg == "INFO" ) {
     ROS_INFO_STREAM("Request to check if robot is ok");
     ROS_INFO_STREAM("Sending back response: Robot is alright!");
-    res.output_res = "Robot is Algirht";
+    res.output_res = "Robot is alright!";
 
   } else if ( req.input_msg == "DEBUG" ) {
     ROS_DEBUG_STREAM("Debugging errors");
@@ -45,10 +45,10 @@ bool CheckForValidMessage(beginner_tutorials::CheckString::Request  &req,
   } else if ( req.input_msg == "ERROR" ) {
     ROS_ERROR_STREAM("Request to check if the robot is giving a warning");
     ROS_ERROR_STREAM("Sending back response: Robot returned some errors!");
-    res.output_res = "Robot has some erros";
+    res.output_res = "Robot has some errors";
 
   } else if ( req.input_msg == "FATAL" ) {
-    ROS_FATAL_STREAM("Request to check if a robot is giving any fatal erros");
+    ROS_FATAL_STREAM("Request to check if a robot is giving any fatal errors");
     ROS_FATAL_STREAM("Sending back response: Robot is on fire!!!");
     res.output_res = "Robot is on fire!!!!!!!!!!!!!!";
   }
