@@ -42,4 +42,13 @@ A repo containting simple ROS tutorials. This repo contains a [publisher & subsc
 
 ```
 
+# How to run CppLint, CppCheck
+```
+  * cd ~/catkin_ws/src/beginner_tutorials
+
+  * cppcheck --enable=all --std=c++11 --language=c++ -I include/ --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/")  $( find . -name *.h | grep -vE -e "^./build/" -e "^./vendor/")  --output-file=results/cppcheck_process.txt > results/cppcheck_result.txt
+  
+  * cpplint --verbose 5 $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/") $( find . -name *.h | grep -vE -e "^./build/" -e "^./vendor/") > results/cpplint_result.txt
+
+```
 
