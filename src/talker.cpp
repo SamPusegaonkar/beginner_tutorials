@@ -8,6 +8,7 @@
  */
 
 #include <sstream>
+#include <tf/transform_broadcaster.h>
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
@@ -55,6 +56,7 @@ bool CheckForValidMessage(beginner_tutorials::CheckString::Request  &req,
   return true;
 }
 
+
 int main(int argc, char **argv) {
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
@@ -98,6 +100,15 @@ int main(int argc, char **argv) {
 
   ros::Rate loop_rate(10);
 
+
+  static tf::TransformBroadcaster br;
+  tf::Transform transform;
+  transform.setOrigin(tf::Vector3(1, 1, 1));
+  tf::Quaternion q;
+  q.setRPY(1, 1, 1);
+  transform.setRotation(q);
+
+
   /**
    * A count of how many messages we have sent. This is used to create
    * a unique string for each message.
@@ -121,6 +132,7 @@ int main(int argc, char **argv) {
      * in the constructor above.
      */
     chatter_pub.publish(msg);
+    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
 
     ros::spinOnce();
 
