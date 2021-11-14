@@ -43,19 +43,7 @@ A repo containting simple ROS tutorials. This repo contains a [publisher & subsc
 
 ```
 
-# How to run this repo - Week11 Branch - TF
-```
-  * cd ~/catkin_ws/
-  * source ./devel/setup.bash
-  * roslaunch beginner_tutorials my_launch.launch
-  * Open another 2 terminals & run the first 2 commands in this section again:
-  * roslaunch beginner_tutorials my_launch.launch
-  * rosrun tf tf_echo /world /talk # To read from the broadcaster
-  * rosrun rqt_tf_tree rqt_tf_tree # To change see the rqt tree structure
-
-```
-
-# How to run, verify rosbag
+# How to run, verify rosbag - Week11 Branch
 ```
   * cd ~/catkin_ws/
   * source ./devel/setup.bash
