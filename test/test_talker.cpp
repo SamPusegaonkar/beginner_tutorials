@@ -41,7 +41,7 @@ TEST(TESTSuite, ChangeStrSrv) {
 /**
  * @brief Test case to check the existance & lookup tf
  */
-TEST(TESTSuite, transformTest) {
+TEST(TESTSuite, TransformTest) {
   // Create TF listener object
   tf::TransformListener listener;
 
