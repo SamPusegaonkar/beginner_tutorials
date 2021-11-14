@@ -47,7 +47,7 @@ A repo containting simple ROS tutorials. This repo contains a [publisher & subsc
 ```
   * cd ~/catkin_ws/
   * source ./devel/setup.bash
-  * roslaunch beginner_tutorials my_launch.launch
+  * roslaunch beginner_tutorials my_launch.launch record:=true
   * Open another 1 terminal & run the first 2 commands in this section again:
   * rosbag record chatter #To record messages from the chatter topic
   * rosbag info src/beginner_tutorials/results/chatter.bag # To see a summary of the bag
