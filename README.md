@@ -19,6 +19,7 @@ A repo containting simple ROS tutorials. This repo contains a [publisher & subsc
   * git clone https://github.com/SamPusegaonkar/beginner_tutorials/tree/main
   * cd ~/catkin_ws/
   * catkin_make
+  * catkin_make run_tests
 ```
 # How to run this repo
 ```
@@ -39,6 +40,30 @@ A repo containting simple ROS tutorials. This repo contains a [publisher & subsc
   * roslaunch beginner_tutorials my_launch.launch
   * rosrun tf tf_echo /world /talk # To read from the broadcaster
   * rosrun rqt_tf_tree rqt_tf_tree # To change see the rqt tree structure
+
+```
+
+# How to run this repo - Week11 Branch - TF
+```
+  * cd ~/catkin_ws/
+  * source ./devel/setup.bash
+  * roslaunch beginner_tutorials my_launch.launch
+  * Open another 2 terminals & run the first 2 commands in this section again:
+  * roslaunch beginner_tutorials my_launch.launch
+  * rosrun tf tf_echo /world /talk # To read from the broadcaster
+  * rosrun rqt_tf_tree rqt_tf_tree # To change see the rqt tree structure
+
+```
+
+# How to run, verify rosbag
+```
+  * cd ~/catkin_ws/
+  * source ./devel/setup.bash
+  * roslaunch beginner_tutorials my_launch.launch
+  * Open another 1 terminal & run the first 2 commands in this section again:
+  * rosbag record chatter #To record messages from the chatter topic
+  * rosbag info src/beginner_tutorials/results/chatter.bag # To see a summary of the bag
+  * rosbag play src/beginner_tutorials/results/chatter.bag # To play the bag file
 
 ```
 
