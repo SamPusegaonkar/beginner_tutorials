@@ -16,21 +16,21 @@
 
 #include "beginner_tutorials/CheckString.h"
 
+std::shared_ptr<ros::NodeHandle> nh;
 
 /**
  * @brief Test case to check the existence and success of calling
- * the ChangeStr service 
- * @param none
- * @return none
+ * the CheckString service 
  */
-std::shared_ptr<ros::NodeHandle> nh;
 TEST(TESTSuite, ChangeStrSrv) {
   ros::ServiceClient client = nh->serviceClient<beginner_tutorials::CheckString>(
       "CheckString");
 
+  // Check if the service is existance
   bool exists(client.waitForExistence(ros::Duration(1)));
   EXPECT_TRUE(exists);
 
+  // Create a checkstring service.
   beginner_tutorials::CheckString srv;
   srv.request.input_msg = "INFO";
   client.call(srv);
@@ -38,11 +38,16 @@ TEST(TESTSuite, ChangeStrSrv) {
   EXPECT_EQ(srv.response.output_res, "Robot is alright!");
 }
 
+/**
+ * @brief Test case to check the existance & lookup tf
+ */
 TEST(TESTSuite, transformTest) {
   // Create TF listener object
   tf::TransformListener listener;
+
   // Create transform object to store the published transform
   tf::StampedTransform transform;
+
   // Wait till the transform is published
   if (listener.waitForTransform("world", "talk", ros::Time(0),
                                 ros::Duration(100))) {
