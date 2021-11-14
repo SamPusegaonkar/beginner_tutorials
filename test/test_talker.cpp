@@ -56,7 +56,6 @@ TEST(TESTSuite, transformTest) {
   }
 }
 
-
 /**
  * @brief Run all rostests for talker node
  * @param none
